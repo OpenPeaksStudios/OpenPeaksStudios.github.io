@@ -101,56 +101,5 @@
             <p>Senior Capstone Project 2026 • Open Peaks Studio</p>
         </footer>
     </div>
-
-    <!-- Lightbox for image expansion -->
-    <div class="lightbox" id="lightbox">
-        <span class="lightbox-close">&times;</span>
-        <img src="" alt="Expanded image">
-    </div>
-
-    <script>
-        // Lightbox functionality
-        const lightbox = document.getElementById('lightbox');
-        const lightboxImg = lightbox.querySelector('img');
-        const lightboxClose = lightbox.querySelector('.lightbox-close');
-        
-        // Add click handlers to all images in screenshot galleries and feature cards
-        const clickableImages = document.querySelectorAll('.screenshot-gallery img, .feature-icon');
-        
-        clickableImages.forEach(img => {
-            img.style.cursor = 'pointer';
-            img.addEventListener('click', function(e) {
-                e.stopPropagation();
-                lightboxImg.src = this.src;
-                lightboxImg.alt = this.alt;
-                lightbox.classList.add('active');
-            });
-        });
-        
-        // Close lightbox functions
-        function closeLightbox() {
-            lightbox.classList.remove('active');
-        }
-        
-        // Click X to close
-        lightboxClose.addEventListener('click', function(e) {
-            e.stopPropagation();
-            closeLightbox();
-        });
-        
-        // Click outside image to close
-        lightbox.addEventListener('click', function(e) {
-            if (e.target === lightbox) {
-                closeLightbox();
-            }
-        });
-        
-        // ESC key to close
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape' && lightbox.classList.contains('active')) {
-                closeLightbox();
-            }
-        });
-    </script>
 </body>
 </html>
